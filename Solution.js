@@ -45,7 +45,7 @@ class Spreadsheet {
      * @return {number}
      */
     #extractValue(operand) {
-        if (/[A-Z]/.test(operand.charAt(0))) {
+        if (/[A-Za-z]/.test(operand.charAt(0))) {
             return this.#cellsToValues.has(operand) ? this.#cellsToValues.get(operand) : Spreadsheet.#EMPTY_CELL;
         }
         return Number(operand);
