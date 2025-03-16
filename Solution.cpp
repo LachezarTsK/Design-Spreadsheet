@@ -19,7 +19,7 @@ public:
         cellsToValues.erase(cell);
     }
 
-    int getValue(const string& formula) {
+    int getValue(const string& formula) const {
         int indexSecondOperator = formula.find('+');
         int firstValue = extractValue(formula.substr(1, indexSecondOperator - 1));
         int secondValue = extractValue(formula.substr(indexSecondOperator + 1));
@@ -27,7 +27,7 @@ public:
     }
 
 private:
-    int extractValue(const string& operand) {
+    int extractValue(const string& operand) const {
         if (isalpha(operand[0])) {
             return cellsToValues.contains(operand) ? cellsToValues.at(operand) : EMPTY_CELL;
         }
